@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import DatePicker from './DatePicker'
+import { useRouter } from 'next/navigation'
 
 function TripForm() {
   const [formData, setFormData] = React.useState({
@@ -22,6 +23,7 @@ function TripForm() {
     budget: "",
     tripType: ""
   });
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -31,6 +33,7 @@ function TripForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form Data:", formData);
+    router.push('/results-page');
   };
 
   return (
