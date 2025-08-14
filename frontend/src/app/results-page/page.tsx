@@ -1,14 +1,17 @@
 import React from 'react'
 import  FlightSearchResults from '@/_components/Flights'
+import HotelSearchResults from '@/_components/Hotels'
 
 function page() {
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-5 p-4'>
+      <div className='flex flex-col items-center gap-5 p-4'>
         <div>
           <FlightSearchResults />
         </div>
-        <div>Hotels</div>
+        <div>
+          <HotelSearchResults />
+        </div>
       </div>
     </div>
   )

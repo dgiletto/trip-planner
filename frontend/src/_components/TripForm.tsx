@@ -42,7 +42,7 @@ function TripForm() {
             {/* Header */}
             <div className="max-w-3xl w-full text-center">
                 <h1 className="text-xl md:text-5xl font-bold">Start Planning Your Trip Instantly!</h1>
-                <p className="mt-5">We'll handle all of the hard work: flights, hotels, and suggest activities in seconds</p>
+                <p className="mt-5">We&apos;ll handle all of the hard work: flights, hotels, and suggest activities in seconds</p>
             </div>
         </div>
       {/* Form */}
