@@ -243,7 +243,7 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotelData }) => {
                   <div className="flex items-center gap-1">
                     {getStarRating(hotelData.extracted_hotel_class)}
                   </div>
-                  <span className="text-sm text-gray-600">{hotelData.hotel_class}</span>
+                  <span className="text-sm text-gray-400">{hotelData.hotel_class}</span>
                 </div>
 
                 <div className="flex items-center gap-4 mb-2">
@@ -252,15 +252,15 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotelData }) => {
                       {getStarRating(hotelData.overall_rating)}
                     </div>
                     <span className="text-sm font-medium">{hotelData.overall_rating}</span>
-                    <span className="text-sm text-gray-600">({hotelData.reviews.toLocaleString()} reviews)</span>
+                    <span className="text-sm text-gray-400">({hotelData.reviews.toLocaleString()} reviews)</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <MapPin className="w-4 h-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">Location: {hotelData.location_rating}/5</span>
+                    <span className="text-sm text-gray-400">Location: {hotelData.location_rating}/5</span>
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                <p className="text-sm text-gray-400 line-clamp-2 mb-3">
                   {hotelData.description}
                 </p>
               </div>
@@ -279,7 +279,7 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotelData }) => {
                   <div className="text-sm text-gray-500">per night</div>
                 </div>
                 {hotelData.total_rate && (
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-gray-400">
                     Total: ${formatPrice(hotelData.total_rate.before_taxes_fees)}
                   </div>
                 )}
@@ -294,7 +294,7 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotelData }) => {
 
           <CardContent className="flex-1 pt-0">
             {/* Check-in/out times */}
-            <div className="flex items-center gap-4 mb-3 text-sm text-gray-600">
+            <div className="flex items-center gap-4 mb-3 text-sm text-gray-400">
               <div className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
                 <span>Check-in: {hotelData.check_in_time}</span>

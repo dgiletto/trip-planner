@@ -104,7 +104,7 @@ const FlightCard: React.FC<FlightCardProps> = ({ flightData }) => {
           </div>
           <div className="text-right">
             <div className="text-2xl font-bold text-blue-600">${flightData.price.toLocaleString()}</div>
-            <div className="text-sm text-gray-500">{flightData.type}</div>
+            <div className="text-sm text-gray-400">{flightData.type}</div>
           </div>
         </div>
       </CardHeader>
@@ -170,7 +170,7 @@ const FlightCard: React.FC<FlightCardProps> = ({ flightData }) => {
               {/* Layover */}
               {index < (flightData.layovers?.length || 0) && flightData.layovers && (
                 <div className="flex items-center justify-center py-2">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Clock className="w-4 h-4" />
                     <span>Layover: {formatLayoverDuration(flightData.layovers[index].duration)} in {flightData.layovers[index].id}</span>
                     {flightData.layovers[index].overnight && (
