@@ -11,7 +11,7 @@ function Header() {
             <h2 className="font-bold text-2xl">AI Trip Planner</h2>
         </div>
         {/* Get Started Button */}
-        <Button>Get Started</Button>
+        <Button className="cursor-pointer">Get Started</Button>
     </div>
   )
 }

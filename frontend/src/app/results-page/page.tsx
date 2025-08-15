@@ -1,6 +1,7 @@
 import React from 'react'
 import  FlightSearchResults from '@/_components/Flights'
 import HotelSearchResults from '@/_components/Hotels'
+import ActivitySuggestions from '@/_components/SuggestedActivities'
 
 function page() {
   return (
@@ -11,6 +12,9 @@ function page() {
         </div>
         <div>
           <HotelSearchResults />
+        </div>
+        <div>
+          <ActivitySuggestions />
         </div>
       </div>
     </div>
