@@ -24,6 +24,7 @@ function TripForm() {
     tripType: ""
   });
   const router = useRouter();
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -32,8 +33,22 @@ function TripForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    router.push('/results-page');
+    setIsLoading(true);
+
+    try {
+        const tripData = {
+            ...formData,
+            startDate: formData.startDate?.toISOString().split('T')[0],
+            endDate: formData.endDate?.toISOString().split('T')[0],
+        };
+
+        sessionStorage.setItem('tripFormData', JSON.stringify(tripData));
+        router.push('/results-page');
+    } catch (err) {
+        console.error('Error Submitting Form: ', err);
+    } finally {
+        setIsLoading(false);
+    }
   };
 
   return (
@@ -62,7 +77,7 @@ function TripForm() {
                             <Input 
                                 id="departureAirport"
                                 type="text"
-                                placeholder="John F. Kennedy International Airport"
+                                placeholder="JFK (airport code) or John F. Kennedy International Airport"
                                 required
                                 value={formData.departureAirport}
                                 onChange={handleChange}
@@ -71,7 +86,7 @@ function TripForm() {
                             <Input 
                                 id="destination"
                                 type="text"
-                                placeholder="London"
+                                placeholder="LAX (airport code) or Los Angeles"
                                 required
                                 value={formData.destination}
                                 onChange={handleChange}
@@ -109,7 +124,7 @@ function TripForm() {
                                     <Input 
                                         id="budget"
                                         type="number"
-                                        placeholder="1,000"
+                                        placeholder="Low, Moderate, High"
                                         required
                                         value={formData.budget}
                                         onChange={handleChange}
@@ -126,7 +141,13 @@ function TripForm() {
                                 onChange={handleChange}
                             />
                         </div>
-                        <Button type="submit" className="w-sm m-auto mt-8 cursor-pointer">Submit</Button>
+                        <Button 
+                            type="submit" 
+                            className="w-sm m-auto mt-8 cursor-pointer"
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Planning Your Trip...' : 'Submit'}
+                        </Button>
                     </form>
                 </CardContent>
             </Card>
